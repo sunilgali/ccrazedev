@@ -11,6 +11,7 @@ public with sharing class ExpensesController {
     @AuraEnabled
     public static Expense__c saveExpense(Expense__c expense) {
         // Perform isUpdatable() checking first, then
+        System.debug('wow');
         upsert expense;
         return expense;
     }

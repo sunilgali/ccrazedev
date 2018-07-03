@@ -20,6 +20,8 @@ public with sharing class CountryListController{
             System.debug('sunil cModel = '+this.cModel.RestResponse);
             System.debug('Country = '+cModel.RestResponse.result[0].name);
         }
+        System.debug('Testing........');
+        System.debug('More Testing........');
     }
     
     String uname;

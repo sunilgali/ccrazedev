@@ -1,0 +1,65 @@
+<apex:page controller="CountryListController" >
+
+    <apex:form >
+        <!-- Define the JavaScript function sayHello-->
+        <apex:actionFunction name="sayHello" action="{!sayHello}" rerender="out" status="myStatus">
+        <apex:param name="param1" assignTo="{!mName}" value=""/>
+        <apex:param name="param2"  value=""/>
+        </apex:actionFunction>
+    </apex:form>
+
+    <apex:outputPanel id="out">
+    <apex:outputText value="Hello "/>
+    <apex:actionStatus startText="requesting..." id="myStatus">
+        <apex:facet name="stop">{!username}</apex:facet>
+    </apex:actionStatus>
+    </apex:outputPanel>
+    
+    <script>
+    
+    sayHello('GavaskarREally' , 'Reddy')
+    
+    
+    function jFunc(){
+        alert("inside");
+    }
+    
+    </script>
+    
+    <apex:form >
+        <apex:outputpanel id="counter">
+            <apex:outputText value="Click Me!: {!count}"/>
+            <apex:actionSupport event="onclick" 
+                                action="{!incrementCounter}" 
+                                rerender="counter" status="counterStatus" oncomplete="jFunc()"/>
+        </apex:outputpanel>
+        <apex:actionStatus id="counterStatus" 
+                           startText=" (incrementing...)" 
+                           stopText=" (done)"/>
+    </apex:form>
+    
+    
+    
+    <!--
+    <apex:dataTable value="{!countries}" var="country" id="theTable" rowClasses="odd,even" styleClass="tableClass">
+
+        <apex:column >
+            <apex:facet name="header">Name</apex:facet>
+            <apex:facet name="footer">column footer</apex:facet>
+            <apex:outputText value="{!country.name}"/>
+        </apex:column>
+        <apex:column >
+            <apex:facet name="header">Code 1</apex:facet>
+            <apex:facet name="footer">column footer</apex:facet>
+            <apex:outputText value="{!country.alpha2_code}"/>
+        </apex:column>
+        <apex:column >
+            <apex:facet name="header">Code 2</apex:facet>
+            <apex:facet name="footer">column footer</apex:facet>
+            <apex:outputText value="{!country.alpha3_code}"/>
+        </apex:column>
+        
+    </apex:dataTable>
+    -->
+    
+</apex:page>
